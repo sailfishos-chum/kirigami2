@@ -68,7 +68,7 @@ popd
 
 %install
 pushd build
-make install
+make DESTDIR=%{buildroot} install
 popd
 %find_lang_kf5 libkirigami2plugin_qt
 
@@ -86,18 +86,17 @@ make test ARGS="--output-on-failure --timeout 30" -C %{_target_platform} ||:
 %endif
 
 
-%files -f libkirigami2plugin_qt.lang
-# README is currently only build instructions, omit for now
-#doc README.md
+%files
 %license LICENSES/*.txt
 %{_opt_kf5_libdir}/libKF5Kirigami2.so.5*
-%dir %{__optkf5_qmldir}/org/
+%dir %{_opt_kf5_qmldir}/org/
 %dir %{_opt_kf5_qmldir}/org/kde/
 %{_opt_kf5_qmldir}/org/kde/kirigami.2/
+%{_opt_kf5_datadir}/locale/
 
 %files devel
 %{_opt_kf5_libdir}/libKF5Kirigami2.so
-%{_opt_kf5_includedir}/Kirigami2/
+%{_opt_kf5_includedir}/KF5/Kirigami2/
 %{_opt_kf5_archdatadir}/mkspecs/modules/qt_Kirigami2.pri
 %{_opt_kf5_libdir}/cmake/KF5Kirigami2/
 %dir %{_opt_kf5_datadir}/kdevappwizard/
