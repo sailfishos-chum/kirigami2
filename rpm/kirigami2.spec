@@ -3,7 +3,7 @@
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
-Name:    kf5-kirigami2
+Name:    opt-kf5-kirigami2
 Version: 5.99.0
 Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
@@ -12,18 +12,17 @@ Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 License: GPLv2+
 URL:     https://techbase.kde.org/Kirigami
 
-%global majmin %majmin_ver_kf5
-%global stable %stable_kf5
 Source0: %{name}-%{version}.tar.bz2
 
 ## upstream paches
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
+%{?opt_qt5_default_filter}
 
 BuildRequires: make
 BuildRequires: extra-cmake-modules >= %{kf5_version}
-#BuildRequires: kf5-rpm-macros
+BuildRequires: opt-kf5-rpm-macros
 
 BuildRequires: opt-qt5-linguist
 BuildRequires: opt-qt5-qtbase-devel
