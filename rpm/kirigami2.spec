@@ -16,9 +16,7 @@ Source0: %{name}-%{version}.tar.bz2
 
 ## upstream paches
 
-# filter qml provides
-%global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
-%{?opt_kf5_default_filter}
+%{opt_kf5_default_filter}
 
 BuildRequires: make
 BuildRequires: opt-extra-cmake-modules >= %{kf5_version}
@@ -30,6 +28,8 @@ BuildRequires: opt-qt5-qtdeclarative-devel
 BuildRequires: opt-qt5-qtquickcontrols2-devel
 BuildRequires: opt-qt5-qtsvg-devel
 BuildRequires: opt-qt5-qtbase-private-devel
+
+%{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 Requires:      opt-qt5-qtquickcontrols%{?_isa}
 Requires:      opt-qt5-qtquickcontrols2%{?_isa}
 
