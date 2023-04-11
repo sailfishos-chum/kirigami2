@@ -18,7 +18,7 @@ Source0: %{name}-%{version}.tar.bz2
 
 # filter qml provides
 %global __provides_exclude_from ^%{_kf5_qmldir}/.*\\.so$
-%{?opt_qt5_default_filter}
+%{?opt_kf5_default_filter}
 
 BuildRequires: make
 BuildRequires: opt-extra-cmake-modules >= %{kf5_version}
