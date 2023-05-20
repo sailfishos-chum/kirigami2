@@ -1,10 +1,10 @@
-%global kf5_version 5.105.0
+%global kf5_version 5.106.0
 
 # uncomment to enable bootstrap mode
 #global bootstrap 1
 
 Name:    opt-kf5-kirigami2
-Version: 5.105.0
+Version: 5.106.0
 Release: 1%{?dist}
 Summary: QtQuick plugins to build user interfaces based on the KDE UX guidelines
 
